@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bishop Dunstan Nsubuga Memorial Secondary School Kalanga</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light grey background */
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 5px; /* Space for the underline */
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: #f7a000; /* Accent color for underline */
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .content-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .content-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen text-gray-800">
+    <!-- Header -->
+    <header class="bg-blue-800 text-white shadow-lg p-4 md:p-6">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center mb-4 md:mb-0">
+                <!-- School Logo Placeholder -->
+                <img src="https://placehold.co/60x60/3b82f6/ffffff?text=LOGO" alt="School Logo" class="rounded-full mr-3 border-2 border-white">
+                <h1 class="text-2xl md:text-3xl font-bold text-yellow-400">BISHOP DUNSTAN NSUBUGA MEMORIAL SECONDARY SCHOOL KALANGALA
+                    
+                    <BR>
+                        <h2 class="text-2xl md:text-3xl font-bold text-yellow-400">KNOWLEDGE IS POWER</h2>
+                </h1>
+            <BR>
+                
+            </div>
+            <!-- Navigation -->
+            <nav>
+                <ul class="flex flex-wrap justify-center md:space-x-8 space-x-4 text-lg">
+                    <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#about" class="nav-link" data-page="about">About Us</a></li>
+                    <li><a href="#admissions" class="nav-link" data-page="admissions">Admissions</a></li>
+                    <li><a href="#academics" class="nav-link" data-page="academics">Academics</a></li>
+                    <li><a href="#gallery" class="nav-link" data-page="gallery">Gallery</a></li>
+                    <li><a href="#contact" class="nav-link" data-page="contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow container mx-auto p-4 md:p-8">
+        <!-- Home Section -->
+        <section id="home-content" class="content-section active bg-white rounded-lg shadow-xl p-6 md:p-10 mb-8">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-blue-700 mb-6 text-center">Welcome to Our School!</h2>
+            <div class="flex flex-col md:flex-row items-center md:space-x-8">
+                <img src="TEST.png" alt="School View" class="w-full md:w-1/2 rounded-lg shadow-md mb-6 md:mb-0" onerror="this.onerror=null;this.src='https://placehold.co/400x250/a0aec0/ffffff?text=Image+Not+Found';">
+                <div class="md:w-1/2">
+                    <p class="text-lg leading-relaxed mb-4">
+                        Bishop Dunstan Nsubuga Memorial Secondary School Kalangala is dedicated to nurturing young minds and fostering holistic development. We believe in providing a robust educational foundation combined with strong moral values, preparing our students to be responsible and impactful citizens.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        Our commitment is to academic excellence, character building, and creating an inclusive environment where every student can thrive. Join us in shaping a brighter future!
+                    </p>
+                    <a href="#about" data-page="about" class="inline-block mt-6 px-6 py-3 bg-yellow-500 text-white font-semibold rounded-lg shadow-md hover:bg-yellow-600 transition duration-300 transform hover:scale-105">Learn More About Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about-content" class="hidden content-section bg-white rounded-lg shadow-xl p-6 md:p-10 mb-8">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-blue-700 mb-6 text-center">About Bishop Dunstan Nsubuga Memorial SS</h2>
+            <div class="grid md:grid-cols-2 gap-8 text-lg leading-relaxed">
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-600 mb-3">Our History</h3>
+                    <p class="mb-4">
+                        Founded in [Year, e.g., 1995], Bishop Dunstan Nsubuga Memorial Secondary School Kalanga was established with the vision of providing quality education in the region, honoring the legacy of Bishop Dunstan Nsubuga. Since its inception, the school has grown steadily, adapting to modern educational needs while upholding its foundational principles.
+                    </p>                            
+                    <p>
+                        We have a proud history of academic achievement and community engagement, continually striving to make a positive impact on the lives of our students and the wider society.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-600 mb-3">Mission & Vision</h3>
+                    <p class="mb-4">
+                        <strong class="text-blue-700">Mission:</strong> To provide holistic, quality education that empowers students with knowledge, skills, and values to excel academically and contribute positively to society.
+                    </p>
+                    <p class="mb-4">
+                        <strong class="text-blue-700">Vision:</strong> To be a leading educational institution recognized for academic excellence, character development, and innovation in learning.
+                    </p>
+                    <h3 class="text-2xl font-bold text-blue-600 mb-3">Our Values</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Integrity</li>
+                        <li>Excellence</li>
+                        <li>Respect</li>
+                        <li>Community</li>
+                        <li>Innovation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admissions Section -->
+        <section id="admissions-content" class="hidden content-section bg-white rounded-lg shadow-xl p-6 md:p-10 mb-8">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-blue-700 mb-6 text-center">Admissions</h2>
+            <p class="text-lg leading-relaxed mb-6">
+                Thank you for your interest in Bishop Dunstan Nsubuga Memorial Secondary School Kalanga. We welcome applications from motivated students eager to learn and grow.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-600 mb-3">How to Apply</h3>
+                    <ol class="list-decimal list-inside space-y-3 text-lg">
+                        <li><strong>Obtain Application Form:</strong> Application forms can be downloaded from our website (link coming soon) or picked up from the school's administrative office during working hours.</li>
+                        <li><strong>Submit Application:</strong> Complete the form thoroughly and submit it along with all required documents before the stated deadline.</li>
+                        <li><strong>Entrance Examination/Interview:</strong> Shortlisted candidates will be invited for an entrance examination and/or interview.</li>
+                        <li><strong>Admission Offer:</strong> Successful candidates will receive an admission offer, along with details on fees and enrollment procedures.</li>
+                    </ol>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-600 mb-3">Requirements</h3>
+                    <ul class="list-disc list-inside space-y-3 text-lg mb-6">
+                        <li>Completed application form</li>
+                        <li>Copies of previous academic reports/transcripts</li>
+                        <li>Birth certificate copy</li>
+                        <li>Passport-sized photographs</li>
+                        <li>Recommendation letter (if applicable)</li>
+                    </ul>
+                    <h3 class="text-2xl font-bold text-blue-600 mb-3">Key Dates</h3>
+                    <p class="text-lg">
+                        <strong>Application Deadline:</strong> []<br>
+                        <strong>Entrance Exams:</strong> []<br>
+                        <strong>New Term Begins:</strong> []
+                    </p>
+                    <p class="text-md mt-4 text-gray-600">
+                        For specific dates and more details, please contact our admissions office.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academics Section -->
+        <section id="academics-content" class="hidden content-section bg-white rounded-lg shadow-xl p-6 md:p-10 mb-8">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-blue-700 mb-6 text-center">Academics</h2>
+            <p class="text-lg leading-relaxed mb-6">
+                Our academic program is designed to provide a comprehensive and challenging curriculum that fosters intellectual curiosity and critical thinking. We aim to equip students with the knowledge and skills necessary for higher education and future careers.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-600 mb-3">Curriculum</h3>
+                    <p class="text-lg mb-4">
+                        We follow the [e.g., Ugandan National Curriculum/Cambridge International Curriculum] tailored to meet the needs of our students. Our curriculum emphasizes a balanced approach to learning, combining theoretical knowledge with practical application.
+                    </p>
+                    <h3 class="text-2xl font-bold text-blue-600 mb-3">Departments</h3>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li>Sciences (Physics, Chemistry, Biology)</li>
+                        <li>Mathematics</li>
+                        <li>Humanities (History, Geography, CRE)</li>
+                        <li>Languages (English, Luganda, French)</li>
+                        <li>Business Studies (Economics, Commerce)</li>
+                        <li>ICT</li>
+                        <li>Arts & Design</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-600 mb-3">Learning Environment</h3>
+                    <p class="text-lg mb-4">
+                        Our classrooms are equipped with modern learning aids, and our teachers are highly qualified and dedicated. We encourage active participation, collaborative learning, and provide individualized support to help each student reach their full potential.
+                    </p>
+                    <h3 class="text-2xl font-bold text-blue-600 mb-3">Co-curricular Activities</h3>
+                    <p class="text-lg">
+                        Beyond academics, we offer a wide range of co-curricular activities including:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li>Debate Club</li>
+                        <li>Science Club</li>
+                        <li>Sports (Football, Basketball, Netball)</li>
+                        <li>Music & Drama</li>
+                        <li>Environmental Club</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery-content" class="hidden content-section bg-white rounded-lg shadow-xl p-6 md:p-10 mb-8">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-blue-700 mb-6 text-center">Gallery</h2>
+            <p class="text-lg leading-relaxed mb-6 text-center">
+                Explore moments from our vibrant school life!
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <img src="https://placehold.co/400x300/60a5fa/ffffff?text=Event+1" alt="School Event" class="w-full h-48 object-cover transform hover:scale-105 transition duration-300" onerror="this.onerror=null;this.src='https://placehold.co/400x300/60a5fa/ffffff?text=Image+Missing';">
+                    <div class="p-4 bg-gray-50">
+                        <p class="font-semibold text-blue-700">Annual Sports Day</p>
+                        <p class="text-sm text-gray-600">Students participating in various sports.</p>
+                    </div>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <img src="https://placehold.co/400x300/a78bfa/ffffff?text=Classroom" alt="Classroom" class="w-full h-48 object-cover transform hover:scale-105 transition duration-300" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a78bfa/ffffff?text=Image+Missing';">
+                    <div class="p-4 bg-gray-50">
+                        <p class="font-semibold text-blue-700">Interactive Learning Session</p>
+                        <p class="text-sm text-gray-600">Engaged students in a science class.</p>
+                    </div>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <img src="https://placehold.co/400x300/fcd34d/ffffff?text=Graduation" alt="Graduation Ceremony" class="w-full h-48 object-cover transform hover:scale-105 transition duration-300" onerror="this.onerror=null;this.src='https://placehold.co/400x300/fcd34d/ffffff?text=Image+Missing';">
+                    <div class="p-4 bg-gray-50">
+                        <p class="font-semibold text-blue-700">Graduation Day</p>
+                        <p class="text-sm text-gray-600">Celebrating the achievements of our graduates.</p>
+                    </div>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <img src="https://placehold.co/400x300/cbd5e0/ffffff?text=Library" alt="Library" class="w-full h-48 object-cover transform hover:scale-105 transition duration-300" onerror="this.onerror=null;this.src='https://placehold.co/400x300/cbd5e0/ffffff?text=Image+Missing';">
+                    <div class="p-4 bg-gray-50">
+                        <p class="font-semibold text-blue-700">School Library</p>
+                        <p class="text-sm text-gray-600">A quiet space for reading and research.</p>
+                    </div>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <img src="https://placehold.co/400x300/94a3b8/ffffff?text=Club+Activity" alt="Club Activity" class="w-full h-48 object-cover transform hover:scale-105 transition duration-300" onerror="this.onerror=null;this.src='https://placehold.co/400x300/94a3b8/ffffff?text=Image+Missing';">
+                    <div class="p-4 bg-gray-50">
+                        <p class="font-semibold text-blue-700">Science Club Experiment</p>
+                        <p class="text-sm text-gray-600">Students conducting an exciting experiment.</p>
+                    </div>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <img src="https://placehold.co/400x300/6b7280/ffffff?text=Performance" alt="Performance" class="w-full h-48 object-cover transform hover:scale-105 transition duration-300" onerror="this.onerror=null;this.src='https://placehold.co/400x300/6b7280/ffffff?text=Image+Missing';">
+                    <div class="p-4 bg-gray-50">
+                        <p class="font-semibold text-blue-700">Annual Drama Performance</p>
+                        <p class="text-sm text-gray-600">Our talented students on stage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact-content" class="hidden content-section bg-white rounded-lg shadow-xl p-6 md:p-10 mb-8">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-blue-700 mb-6 text-center">Contact Us</h2>
+            <div class="grid md:grid-cols-2 gap-8 text-lg leading-relaxed">
+                <div>
+                    <p class="mb-4">
+                        We are happy to answer any questions you may have about Bishop Dunstan Nsubuga Memorial Secondary School Kalanga. Please feel free to reach out to us using the details below or visit our campus.
+                    </p>
+                    <div class="space-y-4">
+                        <p><strong class="text-blue-700">Address:</strong> Kalanga, [District/Region], Uganda</p>
+                        <p><strong class="text-blue-700">Phone:</strong> +256 [Insert Phone Number]</p>
+                        <p><strong class="text-blue-700">Email:</strong> <a href="mailto:info@bishopdunstan.ac.ug" class="text-blue-500 hover:underline">info@bishopdunstan.ac.ug</a></p>
+                        <p><strong class="text-blue-700">Office Hours:</strong> Monday - Friday, 8:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-600 mb-3">Send Us a Message</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+                            <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Your Message</label>
+                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500" required></textarea>
+                        </div>
+                        <button type="submit" id="send-message-btn" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300 transform hover:scale-105">Send Message</button>
+                    </form>
+                    <div id="contact-success" class="mt-4 text-green-600 font-semibold" style="display:none;"></div>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-bold text-blue-600 mb-3 text-center">Find Us on the Map</h3>
+                <!-- Placeholder for an embedded map -->
+                <div class="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500 text-xl shadow-md">
+                    [Google Map Embed Placeholder Here]
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15958.847180496155!2d32.4930605!3d0.485172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177d710000000001%3A0x6b7a5a5e5e5e5e5e!2sKalanga%2C%20Uganda!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Kalanga Map"
+                    ></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white p-6 md:p-8 mt-8 rounded-t-lg shadow-inner">
+        <div class="container mx-auto text-center text-sm md:text-base">
+            <p>&copy; 2025 Bishop Dunstan Nsubuga Memorial Secondary School Kalanga. All Rights Reserved.</p>
+            <p class="mt-2">Designed with passion for education.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("vuUNxOgPRS9kqMIjJ"); // Replace with your actual EmailJS public key
+        })();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const mainContent = document.querySelector('main');
+            const contactForm = document.getElementById('contact-form');
+            const sendButton = document.getElementById('send-message-btn');
+            const contactSuccess = document.getElementById('contact-success');
+
+            // EmailJS form submission handler
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Show loading state
+                const originalText = sendButton.textContent;
+                sendButton.textContent = 'Sending...';
+                sendButton.disabled = true;
+                sendButton.classList.add('opacity-50');
+
+                // Get form data
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    message: document.getElementById('message').value
+                };
+
+                // Send email using EmailJS
+                emailjs.send('service_m4tirtv', 'template_bxga0w9', {
+                    to_name: 'Head Teacher',
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    message: formData.message,
+                    to_email: 'koyamumartinkigozi@gmail.com' // Replace with actual head teacher email
+                })
+                .then(function(response) {
+                    // Success message
+                    contactSuccess.textContent = `Thank you, ${formData.name}! Your message has been sent.`;
+                    contactSuccess.style.display = 'block';
+                    contactForm.reset();
+                    
+                    // Reset button state
+                    sendButton.textContent = originalText;
+                    sendButton.disabled = false;
+                    sendButton.classList.remove('opacity-50');
+                }, function(error) {
+                    // Error message
+                    alert('Sorry, there was an error sending your message. Please try again later.');
+                    console.error('EmailJS Error:', error);
+                    
+                    // Reset button state
+                    sendButton.textContent = originalText;
+                    sendButton.disabled = false;
+                    sendButton.classList.remove('opacity-50');
+                });
+            });
+
+            // Function to show a specific page
+            const showPage = (pageId) => {
+                // Hide all content sections first with animation
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                    section.classList.add('hidden'); // Hide after animation
+                });
+
+                // Remove active class from all nav links
+                navLinks.forEach(link => link.classList.remove('active'));
+
+                // Find the target section and nav link
+                const targetSection = document.getElementById(`${pageId}-content`);
+                const targetNavLink = document.querySelector(`.nav-link[data-page="${pageId}"]`);
+
+                if (targetSection) {
+                    // Show the target section after a small delay for fade-out effect
+                    setTimeout(() => {
+                        targetSection.classList.remove('hidden');
+                        targetSection.classList.add('active');
+                    }, 50); // Small delay
+                }
+                if (targetNavLink) {
+                    targetNavLink.classList.add('active');
+                }
+            };
+
+            // Handle navigation clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default anchor behavior
+                    const pageId = event.target.dataset.page;
+                    showPage(pageId);
+                    // Update URL hash for direct linking/bookmarking
+                    window.location.hash = `#${pageId}`;
+                });
+            });
+
+            // Handle initial page load based on URL hash or default to home
+            const initialPage = window.location.hash ? window.location.hash.substring(1) : 'home';
+            showPage(initialPage);
+        });
+    </script>
+</body>
+</html>
+    
