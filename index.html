@@ -205,24 +205,36 @@
     <main class="flex-grow">
         <!-- Home Section -->
         <section id="home-content" class="content-section active hero-animate">
-             <div class="bg-gradient-to-b from-slate-100 to-slate-50 py-16 md:py-24">
+            <div class="relative bg-gradient-to-br from-slate-100 via-blue-50 to-green-50 py-16 md:py-24 overflow-hidden">
                 <div class="container mx-auto px-6 text-center">
-                    <h2 class="text-4xl md:text-6xl font-extrabold text-slate-800 mb-4">Welcome to Bidan Sec Kalangala</h2>
+                    <h2 class="text-4xl md:text-6xl font-extrabold mb-2 gradient-text drop-shadow-lg" style="background: linear-gradient(90deg, #1e3a8a, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                        Welcome to Bidan Sec Kalangala
+                    </h2>
+                    <div class="text-xl md:text-2xl font-bold text-green-500 mb-4 tracking-wide animate-pulse">Empowering Minds, Shaping Futures</div>
                     <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed">
                         Nurturing young minds for a brighter, more impactful future through holistic education and strong moral values.
                     </p>
-                    <div class="flex flex-col md:flex-row items-center justify-center gap-10">
-                        <img src="GH-NRniXYAEcNcS.jpg" alt="School View" class="w-full md:w-1/2 rounded-2xl shadow-2xl hero-img-float" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a0aec0/ffffff?text=Image+Not+Found';">
-                        <div class="md:w-1/2 text-left bg-white p-8 rounded-2xl shadow-xl">
-                            <p class="text-lg leading-relaxed mb-4 text-slate-700">
-                                Bishop Dunstan Nsubuga Memorial Secondary School Kalangala is dedicated to providing a robust educational foundation combined with strong moral values, preparing our students to be responsible and impactful citizens.
-                            </p>
-                            <p class="text-lg leading-relaxed text-slate-700">
-                                Our commitment is to academic excellence, character building, and creating an inclusive environment where every student can thrive.
-                            </p>
-                            <a href="#about" data-page="about" class="inline-block mt-6 px-8 py-3 bg-amber-400 text-slate-900 font-bold rounded-full shadow-lg hover:bg-amber-500 transition duration-300 transform hover:scale-105 btn-animate">Learn More About Us</a>
-                        </div>
+                    <div class="flex flex-col items-center md:w-3/4 w-full gap-6 mb-6 md:mb-0 mx-auto">
+                        <img src="GH-NRniXYAEcNcS.jpg" alt="School View 1" class="w-full rounded-2xl shadow-2xl hero-img-float object-cover border-4 border-blue-400 transition-transform duration-300 hover:scale-105 hover:shadow-blue-200" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a0aec0/ffffff?text=Image+Not+Found';">
+                        <img src="3.png" alt="School View 2" class="w-full rounded-2xl shadow-2xl hero-img-float object-cover border-4 border-blue-400 transition-transform duration-300 hover:scale-105 hover:shadow-blue-200" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a0aec0/ffffff?text=Image+Not+Found';">
                     </div>
+                    <div class="md:w-1/2 text-left bg-white/90 p-8 rounded-2xl shadow-xl mx-auto mt-8">
+                        <p class="text-lg leading-relaxed mb-4 text-slate-700">
+                            Bishop Dunstan Nsubuga Memorial Secondary School Kalangala is dedicated to providing a robust educational foundation combined with strong moral values, preparing our students to be responsible and impactful citizens.
+                        </p>
+                        <p class="text-lg leading-relaxed text-slate-700">
+                            Our commitment is to academic excellence, character building, and creating an inclusive environment where every student can thrive.
+                        </p>
+                        <a href="#about" data-page="about" class="inline-block mt-6 px-8 py-3 bg-blue-500 text-white font-bold rounded-full shadow-lg hover:bg-blue-600 transition duration-300 transform hover:scale-105 btn-animate animate-pulse">Learn More About Us</a>
+                    </div>
+                </div>
+                <!-- Decorative SVG Wave Divider -->
+                <div class="absolute left-0 right-0 bottom-0 w-full overflow-hidden leading-none" style="height: 60px;">
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-full">
+                        <path d="M0,0V46.29c47.29,22,104.09,29,158,17.39C267.85,44.15,327.29,0,385,0s117.15,44.15,227,63.68C665.91,92.29,722.71,85.29,770,63.68c53.91-22.29,110.71-29.29,164-17.39C1104.09,63.68,1160.89,70.68,1200,46.29V0Z" opacity=".25" fill="#3b82f6"></path>
+                        <path d="M0,0V15.81C47.29,37.81,104.09,44.81,158,33.2C267.85,20.96,327.29,0,385,0s117.15,20.96,227,33.2C665.91,44.81,722.71,37.81,770,15.81c53.91-22.29,110.71-29.29,164-17.39C1104.09,33.2,1160.89,40.2,1200,15.81V0Z" opacity=".5" fill="#10b981"></path>
+                        <path d="M0,0V5.63C47.29,27.63,104.09,34.63,158,23.02C267.85,10.78,327.29,0,385,0s117.15,10.78,227,23.02C665.91,34.63,722.71,27.63,770,5.63c53.91-22.29,110.71-29.29,164-17.39C1104.09,23.02,1160.89,30.02,1200,5.63V0Z" fill="#3b82f6"></path>
+                    </svg>
                 </div>
             </div>
             <!-- School Calendar Section -->
@@ -350,22 +362,40 @@
                 <p class="text-lg leading-relaxed mb-10 text-center max-w-3xl mx-auto">
                     Explore moments from our vibrant school life, from the classroom to the sports field.
                 </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Gallery Items: Local Images -->
+                <style>
+                    .gallery-aspect {
+                        position: relative;
+                        width: 100%;
+                        padding-bottom: 75%; /* 4:3 aspect ratio */
+                        overflow: hidden;
+                    }
+                    .gallery-aspect img {
+                        position: absolute;
+                        top: 0; left: 0; width: 100%; height: 100%;
+                        object-fit: cover;
+                        transition: transform 0.7s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s;
+                    }
+                </style>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     <div class="group rounded-xl overflow-hidden shadow-lg relative card-hover-effect">
-                        <img src="1.jpg" alt="Gallery Image 1" class="w-full h-56 object-cover transform transition duration-500 gallery-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <div class="gallery-aspect">
+                            <img src="1.jpg" alt="Gallery Image 1" class="gallery-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        </div>
                         <div class="absolute inset-0 gallery-overlay"></div>
                     </div>
                     <div class="group rounded-xl overflow-hidden shadow-lg relative card-hover-effect">
-                        <img src="2.jpeg" alt="Gallery Image 2" class="w-full h-56 object-cover transform transition duration-500 gallery-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <div class="gallery-aspect">
+                            <img src="2.jpeg" alt="Gallery Image 2" class="gallery-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        </div>
                         <div class="absolute inset-0 gallery-overlay"></div>
                     </div>
                     <div class="group rounded-xl overflow-hidden shadow-lg relative card-hover-effect">
-                        <img src="3.png" alt="Gallery Image 3" class="w-full h-56 object-cover transform transition duration-500 gallery-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <div class="gallery-aspect">
+                            <img src="3.png" alt="Gallery Image 3" class="gallery-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        </div>
                         <div class="absolute inset-0 gallery-overlay"></div>
                     </div>
-
-                    </div>
+                    <!-- Add more images here as needed -->
                 </div>
                 <!-- Elfsight Pinterest Feed | Untitled Pinterest Feed -->
                 <script src="https://static.elfsight.com/platform/platform.js" async></script>
