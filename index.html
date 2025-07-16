@@ -20,7 +20,7 @@
             color: #334155; /* Default text color (slate-700) */
         }
         .nav-link {
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
             position: relative;
             padding-bottom: 8px;
         }
@@ -34,7 +34,7 @@
             height: 3px;
             background-color: #fbbf24; /* Amber-400 for accent */
             border-radius: 2px;
-            transition: width 0.3s ease;
+            transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
         }
         .nav-link:hover,
         .nav-link.active {
@@ -44,14 +44,109 @@
         .nav-link.active::after {
             width: 60%;
         }
-        .content-section {
+        /* Header animation */
+        .header-animate {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transform: translateY(-40px);
+            animation: headerFadeIn 1.2s 0.2s cubic-bezier(0.4,0,0.2,1) forwards;
         }
-        .content-section.active {
+        @keyframes headerFadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Hero animation */
+        .hero-animate {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: heroFadeIn 1.2s 0.6s cubic-bezier(0.4,0,0.2,1) forwards;
+        }
+        @keyframes heroFadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-img-float {
+            animation: heroFloat 5s ease-in-out infinite;
+        }
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-18px) scale(1.03); }
+        }
+        /* Section scroll animation */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(60px) scale(0.98);
+            transition: opacity 1s cubic-bezier(0.4,0,0.2,1), transform 1s cubic-bezier(0.4,0,0.2,1);
+        }
+        .scroll-animate.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
+        }
+        /* Button pulse */
+        .btn-animate {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-animate::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(251,191,36,0.3);
+            border-radius: 100%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+            z-index: 0;
+        }
+        .btn-animate:active::after {
+            width: 200px;
+            height: 200px;
+        }
+        .btn-animate {
+            z-index: 1;
+        }
+        /* Gallery lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0; width: 100vw; height: 100vh;
+            background: rgba(30,41,59,0.85);
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.5s;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 80vh;
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px 0 rgba(30,58,138,0.25);
+            animation: zoomIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; } to { opacity: 1; }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; }
+        }
+        /* Footer animation */
+        .footer-animate {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: footerFadeIn 1.2s 1.2s cubic-bezier(0.4,0,0.2,1) forwards;
+        }
+        @keyframes footerFadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Existing and improved gallery/card/section styles remain */
+        .floating-title {
+            animation: floatTitle 3s ease-in-out infinite;
+        }
+        @keyframes floatTitle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
         }
         .gradient-text {
             background: linear-gradient(45deg, #1e3a8a, #3b82f6);
@@ -62,19 +157,32 @@
              transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card-hover-effect:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.05);
             box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .gallery-img {
+            transition: transform 0.7s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s;
+        }
+        .group:hover .gallery-img {
+            transform: scale(1.12) rotate(-2deg);
+            box-shadow: 0 8px 32px 0 rgba(30,58,138,0.18);
+        }
+        .gallery-overlay {
+            transition: background 0.5s;
+        }
+        .group:hover .gallery-overlay {
+            background: rgba(30,58,138,0.25);
         }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
     <!-- Header -->
-    <header class="bg-slate-800/90 text-slate-200 shadow-md sticky top-0 z-50 backdrop-blur-lg">
+    <header class="bg-slate-800/90 text-slate-200 shadow-md sticky top-0 z-50 backdrop-blur-lg header-animate">
         <div class="container mx-auto flex flex-col md:flex-row items-center justify-between p-4">
             <div class="flex items-center mb-4 md:mb-0">
-                <img src="https://placehold.co/60x60/f8fafc/1e293b?text=LOGO" alt="School Logo" class="rounded-full mr-4 border-2 border-amber-400">
+                <img src="BIDAN BADGE.png" alt="School Logo" class="rounded-full mr-4 border-2 border-amber-400 w-16 h-16 object-cover">
                 <div>
-                    <h1 class="text-xl md:text-2xl font-bold text-white tracking-tight">BISHOP DUNSTAN NSUBUGA MEMORIAL SECONDARY SCHOOL KALANGALA</h1>
+                    <h1 class="text-xl md:text-2xl font-bold text-white tracking-tight floating-title">BISHOP DUNSTAN NSUBUGA MEMORIAL SECONDARY SCHOOL KALANGALA</h1>
                     <p class="text-sm font-medium text-amber-400 uppercase tracking-widest">Knowledge Is Power</p>
                 </div>
             </div>
@@ -95,7 +203,7 @@
     <!-- Main Content Area -->
     <main class="flex-grow">
         <!-- Home Section -->
-        <section id="home-content" class="content-section active">
+        <section id="home-content" class="content-section active hero-animate">
              <div class="bg-gradient-to-b from-slate-100 to-slate-50 py-16 md:py-24">
                 <div class="container mx-auto px-6 text-center">
                     <h2 class="text-4xl md:text-6xl font-extrabold text-slate-800 mb-4">Welcome to BIDAN SEC KALANGALA!</h2>
@@ -103,7 +211,7 @@
                         Nurturing young minds for a brighter, more impactful future through holistic education and strong moral values.
                     </p>
                     <div class="flex flex-col md:flex-row items-center justify-center gap-10">
-                        <img src="GH-NRniXYAEcNcS.jpg" alt="School View" class="w-full md:w-1/2 rounded-2xl shadow-2xl" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a0aec0/ffffff?text=Image+Not+Found';">
+                        <img src="GH-NRniXYAEcNcS.jpg" alt="School View" class="w-full md:w-1/2 rounded-2xl shadow-2xl hero-img-float" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a0aec0/ffffff?text=Image+Not+Found';">
                         <div class="md:w-1/2 text-left bg-white p-8 rounded-2xl shadow-xl">
                             <p class="text-lg leading-relaxed mb-4 text-slate-700">
                                 Bishop Dunstan Nsubuga Memorial Secondary School Kalangala is dedicated to providing a robust educational foundation combined with strong moral values, preparing our students to be responsible and impactful citizens.
@@ -111,7 +219,7 @@
                             <p class="text-lg leading-relaxed text-slate-700">
                                 Our commitment is to academic excellence, character building, and creating an inclusive environment where every student can thrive.
                             </p>
-                            <a href="#about" data-page="about" class="inline-block mt-6 px-8 py-3 bg-amber-400 text-slate-900 font-bold rounded-full shadow-lg hover:bg-amber-500 transition duration-300 transform hover:scale-105">Learn More About Us</a>
+                            <a href="#about" data-page="about" class="inline-block mt-6 px-8 py-3 bg-amber-400 text-slate-900 font-bold rounded-full shadow-lg hover:bg-amber-500 transition duration-300 transform hover:scale-105 btn-animate">Learn More About Us</a>
                         </div>
                     </div>
                 </div>
@@ -122,7 +230,7 @@
         <div class="container mx-auto p-4 md:p-8">
 
             <!-- About Us Section -->
-            <section id="about-content" class="hidden content-section bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-12 card-hover-effect">
+            <section id="about-content" class="hidden content-section bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-12 card-hover-effect scroll-animate">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-8 text-center">About Bishop Dunstan Nsubuga Memorial SS</h2>
                 <div class="grid md:grid-cols-2 gap-10 text-lg leading-relaxed">
                     <div>
@@ -155,7 +263,7 @@
             </section>
 
             <!-- Admissions Section -->
-            <section id="admissions-content" class="hidden content-section bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-12 card-hover-effect">
+            <section id="admissions-content" class="hidden content-section bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-12 card-hover-effect scroll-animate">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4 text-center">Admissions Process</h2>
                 <p class="text-lg leading-relaxed mb-10 text-center max-w-3xl mx-auto">
                     Thank you for your interest in our school. We welcome applications from motivated students eager to learn and grow in a dynamic community.
@@ -188,7 +296,7 @@
             </section>
 
             <!-- Academics Section -->
-            <section id="academics-content" class="hidden content-section bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-12 card-hover-effect">
+            <section id="academics-content" class="hidden content-section bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-12 card-hover-effect scroll-animate">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4 text-center">Our Academics</h2>
                  <p class="text-lg leading-relaxed mb-10 text-center max-w-3xl mx-auto">
                     Our program is designed to be comprehensive and challenging, fostering intellectual curiosity and critical thinking for success in higher education and beyond.
@@ -226,7 +334,7 @@
             </section>
 
             <!-- Gallery Section -->
-            <section id="gallery-content" class="hidden content-section bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-12 card-hover-effect">
+            <section id="gallery-content" class="hidden content-section bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-12 card-hover-effect scroll-animate">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4 text-center">School Gallery</h2>
                 <p class="text-lg leading-relaxed mb-10 text-center max-w-3xl mx-auto">
                     Explore moments from our vibrant school life, from the classroom to the sports field.
@@ -234,34 +342,42 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Gallery Items: Local Images -->
                     <div class="group rounded-xl overflow-hidden shadow-lg relative card-hover-effect">
-                        <img src="1.jpg" alt="Gallery Image 1" class="w-full h-56 object-cover transform transition duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <img src="1.jpg" alt="Gallery Image 1" class="w-full h-56 object-cover transform transition duration-500 gallery-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <div class="absolute inset-0 gallery-overlay"></div>
                     </div>
                     <div class="group rounded-xl overflow-hidden shadow-lg relative card-hover-effect">
-                        <img src="2.jpeg" alt="Gallery Image 2" class="w-full h-56 object-cover transform transition duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <img src="2.jpeg" alt="Gallery Image 2" class="w-full h-56 object-cover transform transition duration-500 gallery-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <div class="absolute inset-0 gallery-overlay"></div>
                     </div>
                     <div class="group rounded-xl overflow-hidden shadow-lg relative card-hover-effect">
-                        <img src="3.png" alt="Gallery Image 3" class="w-full h-56 object-cover transform transition duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <img src="3.png" alt="Gallery Image 3" class="w-full h-56 object-cover transform transition duration-500 gallery-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <div class="absolute inset-0 gallery-overlay"></div>
                     </div>
                     <div class="group rounded-xl overflow-hidden shadow-lg relative card-hover-effect">
-                        <img src="DJI_0007.jpeg" alt="Gallery Image 4" class="w-full h-56 object-cover transform transition duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <img src="DJI_0007.jpeg" alt="Gallery Image 4" class="w-full h-56 object-cover transform transition duration-500 gallery-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <div class="absolute inset-0 gallery-overlay"></div>
                     </div>
                     <div class="group rounded-xl overflow-hidden shadow-lg relative card-hover-effect">
-                        <img src="GH-NRniXYAEcNcS.jpg" alt="Gallery Image 5" class="w-full h-56 object-cover transform transition duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <img src="GH-NRniXYAEcNcS.jpg" alt="Gallery Image 5" class="w-full h-56 object-cover transform transition duration-500 gallery-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <div class="absolute inset-0 gallery-overlay"></div>
                     </div>
                     <div class="group rounded-xl overflow-hidden shadow-lg relative card-hover-effect">
-                        <img src="unnamed.webp" alt="Gallery Image 6" class="w-full h-56 object-cover transform transition duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <img src="unnamed.webp" alt="Gallery Image 6" class="w-full h-56 object-cover transform transition duration-500 gallery-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <div class="absolute inset-0 gallery-overlay"></div>
                     </div>
                     <div class="group rounded-xl overflow-hidden shadow-lg relative card-hover-effect">
-                        <img src="unnamed (1).webp" alt="Gallery Image 7" class="w-full h-56 object-cover transform transition duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <img src="unnamed (1).webp" alt="Gallery Image 7" class="w-full h-56 object-cover transform transition duration-500 gallery-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <div class="absolute inset-0 gallery-overlay"></div>
                     </div>
                     <div class="group rounded-xl overflow-hidden shadow-lg relative card-hover-effect">
-                        <img src="unnamed (2).webp" alt="Gallery Image 8" class="w-full h-56 object-cover transform transition duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <img src="unnamed (2).webp" alt="Gallery Image 8" class="w-full h-56 object-cover transform transition duration-500 gallery-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a0aec0/ffffff?text=Image+Missing';">
+                        <div class="absolute inset-0 gallery-overlay"></div>
                     </div>
                 </div>
             </section>
 
             <!-- Contact Us Section -->
-            <section id="contact-content" class="hidden content-section bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-12 card-hover-effect">
+            <section id="contact-content" class="hidden content-section bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-12 card-hover-effect scroll-animate">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-10 text-center">Get In Touch</h2>
                 <div class="grid md:grid-cols-2 gap-10 text-lg leading-relaxed">
                     <div class="space-y-6">
@@ -320,12 +436,17 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-800 text-slate-300 p-8">
+    <footer class="bg-slate-800 text-slate-300 p-8 footer-animate">
         <div class="container mx-auto text-center text-base">
             <p>© 2025 Bishop Dunstan Nsubuga Memorial Secondary School Kalangala. All Rights Reserved.</p>
             <p class="mt-2 text-sm text-slate-400">Designed with passion for education.</p>
         </div>
     </footer>
+
+    <!-- Lightbox Modal for Gallery -->
+    <div id="lightbox" class="lightbox" onclick="this.classList.remove('active')">
+        <img id="lightbox-img" src="" alt="Gallery Large View">
+    </div>
 
     <script>
         // Initialize EmailJS
@@ -420,6 +541,33 @@
             // Initial page load
             const initialPage = window.location.hash ? window.location.hash.substring(1) : 'home';
             showPage(initialPage);
+
+            // Section scroll animation
+            const scrollSections = document.querySelectorAll('.scroll-animate');
+            const observer = new window.IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            scrollSections.forEach(section => observer.observe(section));
+
+            // Gallery lightbox
+            document.querySelectorAll('.gallery-img').forEach(img => {
+                img.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const lightbox = document.getElementById('lightbox');
+                    const lightboxImg = document.getElementById('lightbox-img');
+                    lightboxImg.src = this.src;
+                    lightbox.classList.add('active');
+                });
+            });
+            document.getElementById('lightbox').addEventListener('click', function() {
+                this.classList.remove('active');
+                document.getElementById('lightbox-img').src = '';
+            });
         });
     </script>
 </body>
